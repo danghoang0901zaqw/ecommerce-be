@@ -10,6 +10,9 @@ export const envSchema = z.object({
   DB_USERNAME: z.string().min(1).default('postgres'),
   DB_PASSWORD: z.string().min(1).default('123456'),
   DB_NAME: z.string().min(1).default('ecommerce'),
+
+  THROTTLER_TTL_MS: z.coerce.number().default(1000),
+  THROTTLER_LIMIT: z.coerce.number().default(10),
 });
 
 export type Env = z.infer<typeof envSchema>;
