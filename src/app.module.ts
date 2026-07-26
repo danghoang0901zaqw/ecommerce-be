@@ -5,8 +5,10 @@ import { PinoLoggerModule } from './config/logger/logger.module';
 import { AppThrottlerModule } from './config/throttler/throttler.module';
 import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard } from '@nestjs/throttler';
-import { CorrelationIdMiddleware } from './middlewares/correlation-id.middleware';
-import { AllExceptionFilter } from './filters/all-exceptions-filter';
+import { CorrelationIdMiddleware } from './core/middlewares/correlation-id.middleware';
+import { AllExceptionFilter } from './core/filters/all-exceptions-filter';
+import appConfig from './config/app/app.config';
+import throttlerConfig from './config/throttler/throttler.config';
 
 const envFile =
   process.env.NODE_ENV === 'production'
@@ -19,6 +21,7 @@ const envFile =
       cache: true,
       envFilePath: envFile,
       validate: validateEnv,
+      load: [appConfig, throttlerConfig],
     }),
     PinoLoggerModule,
     AppThrottlerModule,
