@@ -14,6 +14,7 @@ import { AppThrottlerModule } from './config/throttler/throttler.module';
 import { AllExceptionFilter } from './core/filters/all-exceptions-filter';
 import { CorrelationIdMiddleware } from './core/middlewares/correlation-id.middleware';
 import { CategoryModule } from './app/category/category.module';
+import { ProductModule } from './app/product/product.module';
 
 const envFile =
   process.env.NODE_ENV === 'production'
@@ -37,6 +38,7 @@ const envFile =
     AuthModule,
     AddressModule,
     CategoryModule,
+    ProductModule,
   ],
   providers: [
     {
