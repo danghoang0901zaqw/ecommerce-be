@@ -13,6 +13,7 @@ import { PinoLoggerModule } from './config/logger/logger.module';
 import { AppThrottlerModule } from './config/throttler/throttler.module';
 import { AllExceptionFilter } from './core/filters/all-exceptions-filter';
 import { CorrelationIdMiddleware } from './core/middlewares/correlation-id.middleware';
+import { CategoryModule } from './app/category/category.module';
 
 const envFile =
   process.env.NODE_ENV === 'production'
@@ -35,6 +36,7 @@ const envFile =
     UserModule,
     AuthModule,
     AddressModule,
+    CategoryModule,
   ],
   providers: [
     {
