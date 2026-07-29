@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AddressModule } from './app/address/address.module';
 import { AuthModule } from './app/auth/auth.module';
 import { UserModule } from './app/user/user.module';
 import { allConfigs } from './config/configuration';
@@ -33,6 +34,7 @@ const envFile =
     }),
     UserModule,
     AuthModule,
+    AddressModule,
   ],
   providers: [
     {
