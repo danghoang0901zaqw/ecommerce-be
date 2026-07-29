@@ -4,7 +4,7 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 dotenv.config({
-  path: process.env.NODE_ENV === 'production' ? 'env.prod' : 'env.dev',
+  path: process.env.NODE_ENV === 'production' ? '.env.prod' : '.env.dev',
 });
 
 export default new DataSource({
